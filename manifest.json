@@ -1,0 +1,14 @@
+{
+	"manifest_version" : 2,
+	"name" : "Remembweb",
+	"version": "1.0",
+
+	"description": "Save data from Website",
+
+	"content_scripts": [
+	{
+		"matches": ["*://*.mozilla.org/*"],
+		"js": ["remembweb.js"]
+	}
+	]
+}
