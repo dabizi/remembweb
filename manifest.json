@@ -16,6 +16,6 @@
 	}
 	],
 	"background": {
-	"js":"background.js"	
+	"js": ["background.js"]
 	}
 }
