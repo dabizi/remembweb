@@ -10,3 +10,13 @@ Other one https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bL9VOMT65ahNEri9uqLW
 
 Figma for design of the app :
 https://www.youtube.com/watch?v=ZcdWOgwe9aU&t=181s
+
+Background homepage :
+https://pixabay.com/fr/illustrations/r%C3%A9seau-social-neurones-3461936/
+https://pixabay.com/fr/illustrations/neurones-cellules-du-cerveau-877577/
+https://pixabay.com/fr/illustrations/neurones-cellules-train-lien-3154919/
+https://pixabay.com/fr/illustrations/syst%C3%A8me-web-r%C3%A9seau-connexion-4048118/
+https://pixabay.com/fr/illustrations/neurones-cellules-du-cerveau-877574/
+https://pixabay.com/fr/illustrations/neurones-cellules-du-cerveau-877577/
+
+When sufficient found, maybe Greg Dunn's design.
