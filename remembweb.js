@@ -1,13 +1,14 @@
-document.body.style.border = "5px solid red";
+console.log("Chrome extension go");
 
-chrome.runtime.onMessage.addListener(gotMessage);
+window.addEventListener('mouseup', wordsSelected);
 
-function gotMessage(request, sender, sendResponse) {
- console.log(message.txt); 
-  if (message.txt === "hello") {
-   let paragraphs = document.getElementsByTagName('p');
-    for (elt of paragraphs) {
-     elt.style['background-color'] = '#FF00FF'; 
-    }
+function wordsSelected(){
+  let selectedText = window.getSelection().toString().trim();
+  console.log(selectedText);
+  if (selectedText.length > 0) {
+    let message = {
+      test: selectedText
+    };
+    browser.runtime.sendMessage(message);
   }
 }

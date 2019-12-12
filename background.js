@@ -1,10 +1,10 @@
 console.log('background running');
 
-chrome.browserAction.onClicked.addListener(buttonClicked);
+browser.runtime.onMessage.addListener(receiver);
 
-function buttonClicked(tab) {
-  let msg = {
-   txt: "hello" 
-  }
- chrome.tabs.sendMessage(tab.id, msg);
+window.word = "webmember";
+
+function receiver(request, sender, sendResponse) {
+  console.log(request);
+  window.word = request.text;
 }
