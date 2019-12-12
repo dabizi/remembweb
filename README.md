@@ -20,4 +20,6 @@ https://pixabay.com/fr/illustrations/neurones-cellules-du-cerveau-877574/
 https://pixabay.com/fr/illustrations/neurones-cellules-du-cerveau-877577/
 https://unsplash.com/photos/G66K_ERZRhM
 
+Icon of Extension
+https://www.flaticon.com/free-icon/brain_994202?term=brain&page=1&position=7
 When sufficient funds, maybe Greg Dunn's design.
