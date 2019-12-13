@@ -4,37 +4,60 @@ function setup() {
   let bgpage = chrome.extension.getBackgroundPage();
   window.word = bgpage.word.trim();
 
-  createP(window.word);
-  var save_button = createButton("save");
-  save_button.mousePressed(saveData);
+  //Get number of questions saved
+  chrome.storage.sync.get('myNb', function(data){
+    var nb = data.myNb;
+    if (typeof nb === "undefined") {
+      data.myNb = 0;
+      chrome.storage.sync.set({'myNb': data.myNb}, function(){
+      });
+    }
 
-  var get_button = createButton("get");
-  get_button.mousePressed(getData);
+    //Create graphics elements asynchronously
+    createP("Nb of questions : " + data.myNb);
+    createP(window.word);
+    var save_button = createButton("save");
+    save_button.mousePressed(saveData);
 
-  var nb_of_saved = createButton("number");
-  nb_of_saved.mousePressed(getNb);
+    var get_button = createButton("get");
+    get_button.mousePressed(getData);
 
-  var clear_button = createButton("clear");
-  clear_button.mousePressed(clearIt);
+    var nb_of_saved = createButton("number");
+    nb_of_saved.mousePressed(getNb);
+
+    var clear_button = createButton("clear");
+    clear_button.mousePressed(clearIt);
+
+  });
+
 }
 
 function saveData() {
   chrome.storage.sync.get('myNb', function(data){
-    var nb = data.myNb;
-    if (typeof nb === "undefined") {
-      var newvalue = 1;
-      chrome.storage.sync.set({'myNb': newvalue}, function(){
-        console.log(newvalue + ' is saved');
-      });
-    }
-    else {
-      console.log('\'' + data.myNb + '\' questions saved');
-    }
-  });
-  chrome.storage.sync.set({'myQuestion': window.word}, function(){
-  console.log('\'' + window.word + '\' is saved');
-
+    nb = data.myNb;
+    nb = incrementCounter(nb, data);
+    chrome.storage.sync.set({"myQuestion": window.word}, function(){
+      alert('\'' + window.word + '\' is saved at ' + nb);
+      console.log('\'' + window.word + '\' is saved at ' + nb);
     });
+  });
+}
+
+function incrementCounter(nb, data)
+{
+  if (typeof nb === "undefined") {
+    data.myNb = 1;
+    chrome.storage.sync.set({'myNb': data.myNb}, function(){
+    })
+    console.log("counter set to 1");
+  }
+  else {
+    data.myNb++;
+    chrome.storage.sync.set({'myNb': data.myNb}, function(){
+    });
+    console.log("counter incremented to " + data.myNb);
+  }
+  return (data.myNb);
 }
 
 function getData() {
@@ -45,11 +68,14 @@ function getData() {
 
 function getNb(){
   chrome.storage.sync.get('myNb', function(data){
-    var nb = data.myNb;
+    nb = data.myNb;
     if (typeof nb === "undefined") {
       alert('Impossible');
     }
     else {
+      data.myNb++;
+      chrome.storage.sync.set({'myNb': data.myNb}, function(){
+      });
       alert(data.myNb + ' questions saved');
     }
   });
