@@ -1,10 +1,17 @@
 function setup() {
   noCanvas();
 
-  let bgpage = chrome.extension.getBackgroundPage();
-  window.word = bgpage.word.trim();
+ let bgpage = chrome.extension.getBackgroundPage();
+ window.word = bgpage.word.trim();
 
+  updateScreen(true);
   //Get number of questions saved
+}
+
+function updateScreen(boolean){
+//  noCanvas();
+//clear();
+
   chrome.storage.sync.get('myNb', function(data){
     var nb = data.myNb;
     if (typeof nb === "undefined") {
@@ -14,7 +21,9 @@ function setup() {
     }
 
     //Create graphics elements asynchronously
+    if (boolean){
     createP("Nb of questions : " + data.myNb);
+    }
     createP(window.word);
     var save_button = createButton("save");
     save_button.mousePressed(saveData);
@@ -29,7 +38,6 @@ function setup() {
     clear_button.mousePressed(clearIt);
 
   });
-
 }
 
 function saveData() {
@@ -37,10 +45,13 @@ function saveData() {
     nb = data.myNb;
     nb = incrementCounter(nb, data);
     chrome.storage.sync.set({"myQuestion": window.word}, function(){
-      alert('\'' + window.word + '\' is saved at ' + nb);
+    alert('\'' + window.word + '\' is saved at ' + nb);
       console.log('\'' + window.word + '\' is saved at ' + nb);
     });
   });
+//  updateScreen(false);
+//window.close;
+//window.location.href="index.html";
 }
 
 function incrementCounter(nb, data)
@@ -79,10 +90,12 @@ function getNb(){
       alert(data.myNb + ' questions saved');
     }
   });
+  //updateScreen();
 }
 
 function clearIt(){
   chrome.storage.sync.clear(function(data){
     alert("data cleared");
   });
+ updateScreen(false);
 }
