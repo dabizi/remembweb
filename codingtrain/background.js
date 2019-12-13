@@ -2,10 +2,9 @@ console.log('background running');
 
 chrome.runtime.onMessage.addListener(receiver);
 
-window.word = "coding train";
+window.word = "Please highlight what you want to save";
 
 function receiver(request, sender, sendResponse) {
   console.log(request);
   word = request.text;
 }
-
