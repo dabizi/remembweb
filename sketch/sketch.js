@@ -1,16 +1,17 @@
+
+
 function setup() {
   noCanvas();
-
- let bgpage = chrome.extension.getBackgroundPage();
- window.word = bgpage.word.trim();
+let bgpage = chrome.extension.getBackgroundPage();
+window.word = bgpage.word.trim();
 
   updateScreen(true);
-  //Get number of questions saved
 }
 
 function updateScreen(boolean){
 //  noCanvas();
-//clear();
+//let bgpage = chrome.extension.getBackgroundPage();
+//window.word = bgpage.word.trim();
 
   chrome.storage.sync.get('myNb', function(data){
     var nb = data.myNb;
@@ -20,10 +21,11 @@ function updateScreen(boolean){
       });
     }
 
+		let question_text;
     //Create graphics elements asynchronously
-    if (boolean){
-    createP("Nb of questions : " + data.myNb);
-    }
+		str = "Question number : " + data.myNb
+  	question_text = createP(str);
+
     createP(window.word);
     var save_button = createButton("save");
     save_button.mousePressed(saveData);
@@ -40,18 +42,28 @@ function updateScreen(boolean){
   });
 }
 
+function QANDA(Number, Questions, Answer1, Answer2, Answer3, Answer4, Date) {
+this.number = Number;
+this.questions = Questions;
+this.answer1 = Answer1;
+this.answer2 = Answer2;
+this.answer3 = Answer3;
+this.answer4 = Answer4;
+this.date = Date;
+}
+
 function saveData() {
   chrome.storage.sync.get('myNb', function(data){
     nb = data.myNb;
     nb = incrementCounter(nb, data);
-    chrome.storage.sync.set({"myQuestion": window.word}, function(){
+		var newquestion = new QANDA(nb, window.word, 'a', 'b', 'c', 'd', 'e');
+		console.log(newquestion);
+    chrome.storage.sync.set({"myQuestion": newquestion}, function(){
     alert('\'' + window.word + '\' is saved at ' + nb);
-      console.log('\'' + window.word + '\' is saved at ' + nb);
+    //console.log('\'' + window.word + '\' is saved at ' + nb);
     });
   });
-//  updateScreen(false);
-//window.close;
-//window.location.href="index.html";
+//	updateScreen(false);
 }
 
 function incrementCounter(nb, data)
@@ -73,12 +85,14 @@ function incrementCounter(nb, data)
 
 function getData() {
   chrome.storage.sync.get('myQuestion', function(data){
-    alert('\'' + data.myQuestion + '\' was saved');
+    alert('\'' + data.myQuestion.questions + '\' was saved');
+		console.log(data.myQuestion);
   });
 }
 
 function getNb(){
   chrome.storage.sync.get('myNb', function(data){
+		// .length
     nb = data.myNb;
     if (typeof nb === "undefined") {
       alert('Impossible');
