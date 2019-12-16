@@ -3,9 +3,13 @@
   "name": "Webmember",
   "version": "0.1",
   "icons":{
+			"16": "brain.png",
       "64": "brain.png"
     },
-  "permissions": ["storage"],
+  "permissions": [
+		"storage",
+		"contextMenus"
+	],
   "applications": {
     "gecko": {
       "id": "janin.grandne@gmail.com"
