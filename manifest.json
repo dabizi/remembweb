@@ -1,26 +1,30 @@
 {
-	"manifest_version" : 2,
-	"name" : "Remembweb",
-	"version": "1.0",
-
-	"description": "Save data from Website",
-
-	"icons":{
-	"48": "icons/border-48.png"
-	},
-
-	"content_scripts": [
-	{
-		"matches": ["<all_urls>"],
-		"js": ["remembweb.js"]
-	}
-	],
-	"background": {
-	"scripts": ["background.js"]
-	},
-	"browser_action": {
-		"default_icon": "icons/border-48.png",
-		"default_popup": "popup.html",
-		"default_title": "A popup will come here"
-	}
+  "manifest_version": 2,
+  "name": "Webmember",
+  "version": "0.1",
+  "icons":{
+      "64": "brain.png"
+    },
+  "permissions": ["storage"],
+  "applications": {
+    "gecko": {
+      "id": "janin.grandne@gmail.com"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "brain.png",
+    "default_popup": "sketch/index.html",
+    "default_title": "Webmember"
+  }
 }

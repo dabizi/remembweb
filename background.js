@@ -1,10 +1,10 @@
 console.log('background running');
 
-browser.runtime.onMessage.addListener(receiver);
+chrome.runtime.onMessage.addListener(receiver);
 
-window.word = "webmember";
+window.word = "Please highlight what you want to save";
 
 function receiver(request, sender, sendResponse) {
   console.log(request);
-  window.word = request.text;
+  word = request.text;
 }
