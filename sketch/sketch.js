@@ -12,18 +12,35 @@ function updateScreen(boolean){
 //  noCanvas();
 //let bgpage = chrome.extension.getBackgroundPage();
 //window.word = bgpage.word.trim();
+var nb;
 
-  chrome.storage.sync.get('myNb', function(data){
-    var nb = data.myNb;
-    if (typeof nb === "undefined") {
-      data.myNb = 0;
-      chrome.storage.sync.set({'myNb': data.myNb}, function(){
-      });
+
+//  chrome.storage.sync.get('myNb', function(data){
+//    nb = data.myNb;
+	//nb = incrementCounter(nb, data
+	chrome.storage.sync.get('myQuestion', function(data){
+	obj = data.myQuestion;
+	console.log(typeof obj);
+
+	//If no question exists, create new array
+	if (typeof obj !== "undefined") {
+		nb = parseInt(obj.length);
+  //chrome.storage.sync.get('myNb', function(data){
+  //  var nb = data.myNb;
+  //  if (typeof nb === "undefined") {
+  //    data.myNb = 0;
+  //    chrome.storage.sync.set({'myNb': data.myNb}, function(){
+    //  });
+		console.log('defined');
     }
-
+		else {
+			console.log('undefined');
+			nb = 0;
+		}
+		});
 		let question_text;
     //Create graphics elements asynchronously
-		str = "Question number : " + data.myNb
+		str = "Question number : " + nb;
   	question_text = createP(str);
 
     createP(window.word);
@@ -33,13 +50,10 @@ function updateScreen(boolean){
     var get_button = createButton("get");
     get_button.mousePressed(getData);
 
-    var nb_of_saved = createButton("number");
-    nb_of_saved.mousePressed(getNb);
-
     var clear_button = createButton("clear");
     clear_button.mousePressed(clearIt);
 
-  });
+//  });
 }
 
 function QANDA(Number, Questions, Answer1, Answer2, Answer3, Answer4, Date) {
@@ -53,58 +67,44 @@ this.date = Date;
 }
 
 function saveData() {
-  chrome.storage.sync.get('myNb', function(data){
-    nb = data.myNb;
-    nb = incrementCounter(nb, data);
-		var newquestion = new QANDA(nb, window.word, 'a', 'b', 'c', 'd', 'e');
-		console.log(newquestion);
-    chrome.storage.sync.set({"myQuestion": newquestion}, function(){
-    alert('\'' + window.word + '\' is saved at ' + nb);
-    //console.log('\'' + window.word + '\' is saved at ' + nb);
-    });
-  });
-//	updateScreen(false);
-}
+	chrome.storage.sync.get('myQuestion', function(data){
+//  chrome.storage.sync.get('myNb', function(data){
+//    nb = data.myNb;
+    //nb = incrementCounter(nb, data
 
-function incrementCounter(nb, data)
-{
-  if (typeof nb === "undefined") {
-    data.myNb = 1;
-    chrome.storage.sync.set({'myNb': data.myNb}, function(){
-    })
-    console.log("counter set to 1");
-  }
-  else {
-    data.myNb++;
-    chrome.storage.sync.set({'myNb': data.myNb}, function(){
+		obj = data.myQuestion;
+
+		//If no question exists, create new array
+		if (typeof obj === "undefined") {
+			var newquestion = new Array();
+			newquestion.push(new QANDA(1, window.word, 'a', 'b', 'c', 'd', 'e'));
+			chrome.storage.sync.set({"myQuestion": newquestion}, function(){
+	    alert('\'' + window.word + '\' is saved at ' + 1);
+	    console.log('\'' + window.word + '\' is saved at ' + 1);
+			});
+		}
+		else {
+			obj.push(new QANDA(obj.length + 1, window.word, 'a', 'b', 'c', 'd', 'e'));
+			chrome.storage.sync.set({"myQuestion": obj}, function(){
+	    alert('\'' + window.word + '\' is saved at ' + obj.length);
+	    console.log('\'' + window.word + '\' is saved at ' + obj.length);
+			console.log(obj);
+			});
+		}
     });
-    console.log("counter incremented to " + data.myNb);
-  }
-  return (data.myNb);
+  //});
+//	updateScreen(false);
 }
 
 function getData() {
   chrome.storage.sync.get('myQuestion', function(data){
-    alert('\'' + data.myQuestion.questions + '\' was saved');
+		if (typeof obj === "undefined") {
+			alert('no question saved');
+		} else {
+    alert('\'' + data.myQuestion.slice(-1)[0].questions + '\' was saved');
+	}
 		console.log(data.myQuestion);
   });
-}
-
-function getNb(){
-  chrome.storage.sync.get('myNb', function(data){
-		// .length
-    nb = data.myNb;
-    if (typeof nb === "undefined") {
-      alert('Impossible');
-    }
-    else {
-      data.myNb++;
-      chrome.storage.sync.set({'myNb': data.myNb}, function(){
-      });
-      alert(data.myNb + ' questions saved');
-    }
-  });
-  //updateScreen();
 }
 
 function clearIt(){
