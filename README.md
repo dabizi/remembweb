@@ -1,5 +1,13 @@
 # remembweb
 
+Progress : 
+- Currently saving data
+
+Next steps : 
+- Need to save the different answers provided by the users
+- Possibility to save an image
+
+
 A project similar to the Memrise app but with the possibility to create and save your own Q/A while on the web, with a simple add-on.
 
 Add-on to save data - Cross Browser Extension
