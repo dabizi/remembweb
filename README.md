@@ -50,3 +50,4 @@ Magnetar, 1 out of 10 neutron star; has an extreme magnetic field
 magnetar dies away because of their extreme magnetic field
 pulsar - cosmic light houses
 use pulsar to triangulate in the universe like gps with satelite; voyager from nasa contains a map to find earth using 14 pulsars
+all of this come from the humble neutron
