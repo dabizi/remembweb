@@ -65,4 +65,5 @@ one supernova; enough iron for 70 000 earth
 more energy red or blue light
 type I supernova hydrogen is missing
 Type 2 has hydrogen
+supernova gives gamma ray which leads to mutation. Supernova therefore may drive evolution 
 
