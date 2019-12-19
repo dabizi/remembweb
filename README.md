@@ -42,3 +42,4 @@ in the atom, the electron are pushed so close from the core that they hit a prot
 while destroying proton and electron
 Pasta metaphore : gnochi then spaghetti then lasagna and tortilioni
 Produced by supernova
+A pulsar is a type of rapidly speeding neutron star
