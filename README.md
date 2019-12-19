@@ -55,4 +55,14 @@ all of this come from the humble neutron
 supernova how the universe works, season 7 episode 2
 to become supernova at least 8 times more massive than our sun
 massive star; every second fuses 7,5 billion tons of hydrogène, which equals a hundred billion atomics bons per seconds
+can reach a billion degree enthe center of the star
+when proton and electron becomes neutron in the neutron core, this release neutrino
+=> supernova produces neutrinos
+neutrino pressure was one of the missing link explaining supernova
+decay of radioactive elements prolounge the light emitted by the supernova; sometimes it lasts for months, year
+one supernova; all dna molecules founds inside
+one supernova; enough iron for 70 000 earth
+more energy red or blue light
+type I supernova hydrogen is missing
+Type 2 has hydrogen
 
