@@ -1,4 +1,5 @@
-# remembweb
+# Webmember
+Add-on to save data - Cross Browser Extension
 
 Progress : 
 - Currently saving data
@@ -11,9 +12,7 @@ Next steps :
 
 A project similar to the Memrise app but with the possibility to create and save your own Q/A while on the web, with a simple add-on.
 
-Add-on to save data - Cross Browser Extension
-
-Confidential information should not be store : content isn't encrypted.
+Note : Confidential information should not be store : content isn't encrypted.
 
 First tutorial used :  https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension
 
