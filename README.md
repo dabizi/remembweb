@@ -51,3 +51,8 @@ magnetar dies away because of their extreme magnetic field
 pulsar - cosmic light houses
 use pulsar to triangulate in the universe like gps with satelite; voyager from nasa contains a map to find earth using 14 pulsars
 all of this come from the humble neutron
+
+supernova how the universe works, season 7 episode 2
+to become supernova at least 8 times more massive than our sun
+massive star; every second fuses 7,5 billion tons of hydrogène, which equals a hundred billion atomics bons per seconds
+
