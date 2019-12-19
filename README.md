@@ -41,3 +41,4 @@ Contrary to what was thought, heavier element than iron may be produced in them
 in the atom, the electron are pushed so close from the core that they hit a proton ; this will produce even more neutrons
 while destroying proton and electron
 Pasta metaphore : gnochi then spaghetti then lasagna and tortilioni
+Produced by supernova
