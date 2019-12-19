@@ -2,9 +2,10 @@
 
 Progress : 
 - Currently saving data
+- Saving date
+- User can input the 3 wrong answers that will be used to test him/her.
 
 Next steps : 
-- Need to save the different answers provided by the users
 - Possibility to save an image
 
 
