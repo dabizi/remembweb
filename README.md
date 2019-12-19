@@ -44,3 +44,5 @@ Pasta metaphore : gnochi then spaghetti then lasagna and tortilioni
 Produced by supernova
 A pulsar is a type of rapidly speeding neutron star i.e. if the star has angular momentum, its accelerate as in patin artistique
 surface sometimes go as fast as 20 pourcent the speed of light
+electric and magnetic fields generate beams of radiation
+starquake because of magnetism
