@@ -1,7 +1,13 @@
+let logo;
 
+function preload()
+{
+  logo = loadImage("../brain.png");
+}
 
 function setup() {
-  noCanvas();
+//  noCanvas();
+    createCanvas(100, 100);
   let bgpage = chrome.extension.getBackgroundPage();
   window.word = bgpage.word.trim();
 
@@ -9,7 +15,7 @@ function setup() {
 }
 
 function updateScreen(boolean){
-  var nb;
+  let nb;
 
   chrome.storage.sync.get('myQuestion', function(data){
     obj = data.myQuestion;
@@ -30,14 +36,17 @@ function updateScreen(boolean){
   question_text = createP(str);
 
   createP(window.word);
-  var save_button = createButton("save");
+  let save_button = createButton("save");
   save_button.mousePressed(saveData);
 
-  var get_button = createButton("get");
+  let get_button = createButton("get");
   get_button.mousePressed(getData);
 
-  var clear_button = createButton("clear");
+  let clear_button = createButton("clear");
   clear_button.mousePressed(clearIt);
+
+  let review_button = createButton("review");
+  review_button.mousePressed(reviewIt);
 
 }
 
@@ -67,28 +76,28 @@ function saveData() {
       return ;
     }
 
-    var person = prompt("Answer 2: ");
+    let answer2 = prompt("Answer 2: ");
+    let answer3 = prompt("Answer 3: ");
+    let answer4 = prompt("Answer 4: ");
     // Get date
-    var d = Date(Date.now());
+    let d = Date(Date.now());
     date = d.toString()
 
     //If no question exists, create new array
     if (typeof obj === "undefined") {
       var newquestion = new Array();
-      newquestion.push(new QANDA(1, window.word, selectedText, person, 'c', 'd', date, 0));
+      newquestion.push(new QANDA(1, window.word, selectedText, answer2, answer3, answer4, date, 0));
       chrome.storage.sync.set({"myQuestion": newquestion}, function(){
         alert('\'' + window.word + '\' is saved at ' + 1);
-        console.log('was undefined');
         console.log('\'' + window.word + '\' is saved at ' + 1);
       });
     }
     else {
       obj.push(new QANDA(obj.length + 1,
-        window.word, selectedText, person, 'c', 'd', date, 0));
+        window.word, selectedText, answer2, answer3, answer4, date, 0));
       chrome.storage.sync.set({"myQuestion": obj}, function(){
         alert('\'' + window.word + '\' is saved at ' + obj.length);
         console.log('\'' + window.word + '\' is saved at ' + obj.length);
-        console.log('was defined');
         console.log(obj);
       });
     }
@@ -104,7 +113,6 @@ function getData() {
       + '\' was saved with the following answers :\n Answers 1 : '
       + data.myQuestion.slice(-1)[0].answer1);
     }
-    console.log('hello');
     console.log(data.myQuestion);
   });
 }
@@ -114,4 +122,10 @@ function clearIt(){
     alert("data cleared");
   });
   //  updateScreen(false);
+}
+
+function reviewIt(){
+  //createCanvas(1000, 500);
+  image(logo, 0, 0);
+//  background(51);
 }

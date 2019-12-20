@@ -1,18 +1,18 @@
-# Webmember
-Add-on to save data - Cross Browser Extension
+# remembweb
 
 Progress : 
 - Currently saving data
-- Saving date
-- User can input the 3 wrong answers that will be used to test him/her.
 
 Next steps : 
+- Need to save the different answers provided by the users
 - Possibility to save an image
 
 
 A project similar to the Memrise app but with the possibility to create and save your own Q/A while on the web, with a simple add-on.
 
-Note : Confidential information should not be store : content isn't encrypted.
+Add-on to save data - Cross Browser Extension
+
+Confidential information should not be store : content isn't encrypted.
 
 First tutorial used :  https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension
 
