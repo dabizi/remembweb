@@ -2,9 +2,9 @@
 
 Progress : 
 - Currently saving data
+- Save the different answers provided by the users
 
-Next steps : 
-- Need to save the different answers provided by the users
+Next steps :
 - Possibility to save an image
 
 
